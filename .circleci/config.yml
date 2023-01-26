@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  semantic-release: trustedshops-public/semantic-release@3.1.5
+
+jobs:
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      # TODO: Add build
+  release:
+    executor: node/default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - semantic-release/create-changelog-config-github
+      - semantic-release/execute
+
+workflows:
+  main:
+    jobs:
+      - build
+      - release:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                # TOOD: Change to main to enable publish
+                - main-enable
+          context:
+            - semantic-release
+            - npm-registry
