@@ -1,0 +1,13 @@
+{
+  "name": "js-iso3166-converter",
+  "version": "1.0.0",
+  "description": "Converts country codes from ISO2 to ISO3 back and forth",
+  "main": "index.js",
+  "repository": "git@github.com:trustedshops-public/js-iso3166-converter.git",
+  "author": "Wiktoria Mielcarek <wiktoria.mielcarek@trustedshops.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "typescript": "^4.9.4"
+  }
+}
