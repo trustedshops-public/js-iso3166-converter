@@ -16,6 +16,9 @@ jobs:
           name: Run build
           command: |
             yarn build
+      - persist_to_workspace:
+          path: [./dist]
+          root: .
   test:
     executor: node/default
     steps:
