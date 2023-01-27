@@ -28,7 +28,7 @@ jobs:
       - run: 
           name: Run jest tests
           command: |
-            yarn test --ci --reporters=default --collectCoverage --coverageReporters lcov --coverage
+            yarn test --ci --reporters=default --reporters=jest-junit --collectCoverage --coverageReporters lcov --coverage
       - store_test_results:
           path: junit.xml
       - codecov/upload:
