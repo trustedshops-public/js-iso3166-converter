@@ -40,7 +40,10 @@ jobs:
       - attach_workspace:
           at: .
       - semantic-release/install
-      - semantic-release/execute
+      - run:
+          name: Run semantic-release
+          command: |
+            semantic-release --branches main
 
 workflows:
   main:
