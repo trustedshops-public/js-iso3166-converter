@@ -1,7 +1,7 @@
 # ISO3166 Converter
 
-![](https://img.shields.io/npm/l/@trustedshops-public/js-iso3166-converter) 
-![](https://img.shields.io/npm/v/@trustedshops-public/js-iso3166-converter) 
+[![](https://img.shields.io/npm/l/@trustedshops-public/js-iso3166-converter)](https://www.npmjs.com/package/@trustedshops-public/js-iso3166-converter)
+[![](https://img.shields.io/npm/v/@trustedshops-public/js-iso3166-converter) ](https://www.npmjs.com/package/@trustedshops-public/js-iso3166-converter)
 [![codecov](https://codecov.io/gh/trustedshops-public/js-iso3166-converter/branch/main/graph/badge.svg?token=NP2RV8WYVM)](https://codecov.io/gh/trustedshops-public/js-iso3166-converter) 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/trustedshops-public/js-iso3166-converter/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/trustedshops-public/js-iso3166-converter/tree/main)
 
