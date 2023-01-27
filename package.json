@@ -19,5 +19,8 @@
     "jest": "^29.4.1",
     "jest-junit": "^15.0.0",
     "ts-jest": "^29.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
