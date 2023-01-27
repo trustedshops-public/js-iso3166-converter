@@ -270,9 +270,15 @@ for (const iso2 in ISO2_TO_ISO3) {
  * @param iso2 The ISO2 country code to convert.
  * @returns The converted ISO3 country code or undefined if the conversion was not possible.
  */
-export const convertIso2ToIso3 = (iso2: ISO2): ISO3 | undefined => {
+export const convertIso2ToIso3 = (iso2: ISO2): ISO3 => {
   const capitalisedIso = iso2.toUpperCase();
-  return isoMapping.get(capitalisedIso);
+  const iso3 = isoMapping.get(capitalisedIso);
+  if (iso3 === undefined) {
+    throw new Error(
+      `Could not convert ISO2 code '${iso2}' to ISO3. Please provide a valid ISO2 code.`
+    );
+  }
+  return iso3 as ISO3;
 };
 
 /**
@@ -280,9 +286,15 @@ export const convertIso2ToIso3 = (iso2: ISO2): ISO3 | undefined => {
  * @param iso3 The ISO3 country code to convert.
  * @returns The converted ISO2 country code or undefined if the conversion was not possible.
  */
-export const convertIso3ToIso2 = (iso3: ISO3): ISO2 | undefined => {
+export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
   const capitalisedIso = iso3.toUpperCase();
-  return isoMapping.get(capitalisedIso);
+  const iso2 = isoMapping.get(capitalisedIso);
+  if (iso2 === undefined) {
+    throw new Error(
+      `Could not convert ISO3 code '${iso3}' to ISO2. Please provide a valid ISO3 code.`
+    );
+  }
+  return iso2 as ISO2;
 };
 
 /**
@@ -290,31 +302,33 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 | undefined => {
  * @param iso The country code to detect the format of.
  * @returns The detected format or undefined if the format could not be detected.
  */
-export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" | undefined => {
+export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
+  if (isoMapping.get(iso) === undefined) {
+    throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
+  }
   if (iso.length === 2) {
     return "ISO2";
   }
   if (iso.length === 3) {
     return "ISO3";
   }
-  return undefined;
+  throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
 };
 
-export const convertIso = (
-  iso: "ISO2" | "ISO3",
-  isoFormat?: "ISO2" | "ISO3"
-): "ISO2" | "ISO3" | undefined => {
-  let format = isoFormat;
-  if (format === undefined) {
-    format = detectedIsoFormat(iso);
-    if (format === undefined) {
-      return undefined;
-    }
-  }
-  if (format === "ISO2") {
-    return convertIso2ToIso3(iso as ISO2);
-  }
-  if (format === "ISO3") {
-    return convertIso3ToIso2(iso as ISO3);
+/**
+ * Convert an ISO2 or ISO3 country code to the other format.
+ * @param iso The country code to convert.
+ * @returns The converted country code or undefined if the conversion was not possible.
+ */
+export const convertIso = (iso: ISO2 | ISO3): ISO2 | ISO3 | undefined => {
+  const format = detectedIsoFormat(iso);
+
+  switch (format) {
+    case "ISO2":
+      return convertIso2ToIso3(iso as ISO2);
+    case "ISO3":
+      return convertIso3ToIso2(iso as ISO3);
+    default:
+      throw new Error(`Unspported format '${format}', unable to convert`);
   }
 };

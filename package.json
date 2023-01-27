@@ -9,5 +9,15 @@
   "private": false,
   "dependencies": {
     "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc src/index.ts --outDir dist"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.4.1",
+    "jest-junit": "^15.0.0",
+    "ts-jest": "^29.0.5"
   }
 }
