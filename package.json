@@ -4,7 +4,7 @@
   "description": "Converts country codes from ISO2 to ISO3 back and forth",
   "main": "dist/index.js",
   "repository": "git@github.com:trustedshops-public/js-iso3166-converter.git",
-  "author": "Wiktoria Mielcarek <wiktoria.mielcarek@trustedshops.com>",
+  "author": "Wiktoria van Harneveldt <wiktoria.vanharneveldt@trustedshops.com>",
   "license": "MIT",
   "private": false,
   "dependencies": {
