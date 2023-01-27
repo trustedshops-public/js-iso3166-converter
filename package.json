@@ -1,5 +1,5 @@
 {
-  "name": "js-iso3166-converter",
+  "name": "@trustedshops-public/js-iso3166-converter",
   "version": "1.0.0",
   "description": "Converts country codes from ISO2 to ISO3 back and forth",
   "main": "dist/index.js",
