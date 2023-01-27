@@ -39,7 +39,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - semantic-release/create-changelog-config-github
       - semantic-release/install
       - semantic-release/execute
 
