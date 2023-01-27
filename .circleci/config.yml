@@ -31,8 +31,7 @@ jobs:
             yarn test --ci --reporters=default --reporters=jest-junit --collectCoverage --coverageReporters lcov --coverage
       - store_test_results:
           path: junit.xml
-      - codecov/upload:
-          file: junit.xml
+      - codecov/upload
   release:
     executor: node/default
     steps:
