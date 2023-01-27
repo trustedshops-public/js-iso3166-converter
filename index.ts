@@ -300,21 +300,18 @@ export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" | undefined => {
   return undefined;
 };
 
-export const convertIso = (
-  iso: "ISO2" | "ISO3",
-  isoFormat?: "ISO2" | "ISO3"
-): "ISO2" | "ISO3" | undefined => {
-  let format = isoFormat;
+export const convertIso = (iso: "ISO2" | "ISO3"): ISO2 | ISO3 | undefined => {
+  const format = detectedIsoFormat(iso);
   if (format === undefined) {
-    format = detectedIsoFormat(iso);
-    if (format === undefined) {
+    return undefined;
+  }
+
+  switch (format) {
+    case "ISO2":
+      return convertIso2ToIso3(iso as ISO2);
+    case "ISO3":
+      return convertIso3ToIso2(iso as ISO3);
+    default:
       return undefined;
-    }
-  }
-  if (format === "ISO2") {
-    return convertIso2ToIso3(iso as ISO2);
-  }
-  if (format === "ISO3") {
-    return convertIso3ToIso2(iso as ISO3);
   }
 };
