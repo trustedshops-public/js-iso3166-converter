@@ -11,7 +11,10 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      # TODO: Add build
+      - run:
+          name: Run build
+          command: |
+            npm run build
   release:
     executor: node/default
     steps:
@@ -24,7 +27,14 @@ jobs:
 workflows:
   main:
     jobs:
-      - build
+      - build:
+          requires:
+            - test
+      - node/test
+          name: test
+          run-command: npm run test -- --ci --reports=jest-junit
+          pkg-manager: yarn
+          test-results-path: junit.xml
       - release:
           requires:
             - build
