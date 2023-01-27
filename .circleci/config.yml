@@ -32,7 +32,7 @@ workflows:
             - test
       - node/test:
           name: test
-          run-command: test --ci --reports=jest-junit
+          run-command: test --ci --reporters=default --reporters=jest-junit
           pkg-manager: yarn
           test-results-path: junit.xml
       - release:
