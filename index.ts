@@ -300,7 +300,12 @@ export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" | undefined => {
   return undefined;
 };
 
-export const convertIso = (iso: "ISO2" | "ISO3"): ISO2 | ISO3 | undefined => {
+/**
+ * Convert an ISO2 or ISO3 country code to the other format.
+ * @param iso The country code to convert.
+ * @returns The converted country code or undefined if the conversion was not possible.
+ */
+export const convertIso = (iso: ISO2 | ISO3): ISO2 | ISO3 | undefined => {
   const format = detectedIsoFormat(iso);
   if (format === undefined) {
     return undefined;
