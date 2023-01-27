@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.1.0
   semantic-release: trustedshops-public/semantic-release@3.1.5
+  codecov: codecov/codecov@3.2.4
 
 jobs:
   build:
@@ -15,6 +16,7 @@ jobs:
           name: Run build
           command: |
             npm run build
+      - codecov/upload
   release:
     executor: node/default
     steps:
