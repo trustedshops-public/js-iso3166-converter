@@ -15,9 +15,18 @@ jobs:
       - run:
           name: Run build
           command: |
-            npm run build
-      - codecov/upload:
-          file: junit.xml
+            yarn build
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run: 
+          name: Run jest tests
+          command: |
+            yarn test --ci --reporters=default --reporters=jest-junit
+      - codecov/upload
   release:
     executor: node/default
     steps:
@@ -30,14 +39,10 @@ jobs:
 workflows:
   main:
     jobs:
+      - test
       - build:
           requires:
             - test
-      - node/test:
-          name: test
-          run-command: test --ci --reporters=default --reporters=jest-junit
-          pkg-manager: yarn
-          test-results-path: junit.xml
       - release:
           requires:
             - build
