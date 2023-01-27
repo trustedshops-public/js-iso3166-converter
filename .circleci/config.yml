@@ -26,7 +26,10 @@ jobs:
           name: Run jest tests
           command: |
             yarn test --ci --reporters=default --reporters=jest-junit
-      - codecov/upload
+      - store_test_results:
+          path: junit.xml
+      - codecov/upload:
+          file: junit.xml
   release:
     executor: node/default
     steps:
