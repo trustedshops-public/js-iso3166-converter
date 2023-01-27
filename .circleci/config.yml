@@ -56,8 +56,7 @@ workflows:
           filters:
             branches:
               only:
-                # TOOD: Change to main to enable publish
-                - main-enable
+                - main
           context:
             - semantic-release
             - npm-registry
