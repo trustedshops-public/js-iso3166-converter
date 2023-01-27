@@ -275,7 +275,7 @@ export const convertIso2ToIso3 = (iso2: ISO2): ISO3 => {
   const iso3 = isoMapping.get(capitalisedIso);
   if (iso3 === undefined) {
     throw new Error(
-      `Could not convert ISO2 code ${iso2} to ISO3. Please provide a valid ISO2 code.`
+      `Could not convert ISO2 code '${iso2}' to ISO3. Please provide a valid ISO2 code.`
     );
   }
   return iso3 as ISO3;
@@ -291,7 +291,7 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
   const iso2 = isoMapping.get(capitalisedIso);
   if (iso2 === undefined) {
     throw new Error(
-      `Could not convert ISO3 code ${iso3} to ISO2. Please provide a valid ISO3 code.`
+      `Could not convert ISO3 code '${iso3}' to ISO2. Please provide a valid ISO3 code.`
     );
   }
   return iso2 as ISO2;
@@ -304,7 +304,7 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
  */
 export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
   if (isoMapping.get(iso) === undefined) {
-    throw new Error("ISO code does not exist");
+    throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
   }
   if (iso.length === 2) {
     return "ISO2";
@@ -312,7 +312,7 @@ export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
   if (iso.length === 3) {
     return "ISO3";
   }
-  throw new Error("Invalid ISO code provided.");
+  throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
 };
 
 /**
@@ -329,6 +329,6 @@ export const convertIso = (iso: ISO2 | ISO3): ISO2 | ISO3 | undefined => {
     case "ISO3":
       return convertIso3ToIso2(iso as ISO3);
     default:
-      throw new Error("Something went wrong, unable to convert.");
+      throw new Error(`Unspported format '${format}', unable to convert`);
   }
 };
