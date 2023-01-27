@@ -30,7 +30,7 @@ workflows:
       - build:
           requires:
             - test
-      - node/test
+      - node/test:
           name: test
           run-command: npm run test -- --ci --reports=jest-junit
           pkg-manager: yarn
