@@ -1,5 +1,7 @@
 # ISO3166 Converter
 
+![](https://img.shields.io/npm/l/@trustedshops-public/js-iso3166-converter) ![](https://img.shields.io/npm/v/@trustedshops-public/js-iso3166-converter)
+
 ## Converting country codes from one format to another
 
 This library provides a simple way to convert country codes from ISO3166-1 alpha-2 to alpha-3 and vice versa.
