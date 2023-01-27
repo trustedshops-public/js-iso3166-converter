@@ -303,6 +303,9 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
  * @returns The detected format or undefined if the format could not be detected.
  */
 export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
+  if (isoMapping.get(iso) === undefined) {
+    throw new Error("ISO code does not exist");
+  }
   if (iso.length === 2) {
     return "ISO2";
   }
