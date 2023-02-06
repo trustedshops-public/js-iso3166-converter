@@ -1,7 +1,8 @@
 # ISO3166 Converter
+
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/trustedshops-public/js-iso3166-converter/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/trustedshops-public/js-iso3166-converter/tree/main)
 [![](https://img.shields.io/npm/l/@trustedshops-public/js-iso3166-converter)](https://www.npmjs.com/package/@trustedshops-public/js-iso3166-converter)
-[![](https://img.shields.io/npm/v/@trustedshops-public/js-iso3166-converter) ](https://www.npmjs.com/package/@trustedshops-public/js-iso3166-converter) 
+[![](https://img.shields.io/npm/v/@trustedshops-public/js-iso3166-converter) ](https://www.npmjs.com/package/@trustedshops-public/js-iso3166-converter)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_js-iso3166-converter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_js-iso3166-converter)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_js-iso3166-converter&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_js-iso3166-converter)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_js-iso3166-converter&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_js-iso3166-converter)
@@ -9,7 +10,7 @@
 
 ## Converting country codes from one format to another
 
-This library provides a simple way to convert country codes from ISO3166-1 alpha-2 to alpha-3 and vice versa.
+This library provides a simple way to convert country codes from ISO3166-1 alpha-2 to alpha-3 and vice versa. It follows the [ISO 3166 Standard](https://www.iso.org/iso-3166-country-codes.html).
 
 ### Installation and usage instructions
 
