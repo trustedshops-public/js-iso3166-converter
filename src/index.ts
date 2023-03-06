@@ -269,6 +269,10 @@ for (const iso2 in ISO2_TO_ISO3) {
  * Convert an ISO2 country code to an ISO3 country code.
  * @param iso2 The ISO2 country code to convert.
  * @returns The converted ISO3 country code or undefined if the conversion was not possible.
+ * @throws An error if the conversion was not possible.
+ * @example
+ * convertIso2ToIso3("GB") // "GBR"
+ * convertIso2ToIso3("GBR") // Error
  */
 export const convertIso2ToIso3 = (iso2: ISO2): ISO3 => {
   const capitalisedIso = iso2.toUpperCase();
@@ -285,6 +289,10 @@ export const convertIso2ToIso3 = (iso2: ISO2): ISO3 => {
  * Convert an ISO3 country code to an ISO2 country code.
  * @param iso3 The ISO3 country code to convert.
  * @returns The converted ISO2 country code or undefined if the conversion was not possible.
+ * @throws An error if the conversion was not possible.
+ * @example
+ * convertIso3ToIso2("GBR") // "GB"
+ * convertIso3ToIso2("GB") // Error
  */
 export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
   const capitalisedIso = iso3.toUpperCase();
@@ -301,6 +309,11 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
  * Returns what country code format was detected.
  * @param iso The country code to detect the format of.
  * @returns The detected format or undefined if the format could not be detected.
+ * @throws An error if the format could not be detected.
+ * @example
+ * detectedIsoFormat("GB") // "ISO2"
+ * detectedIsoFormat("GBR") // "ISO3"
+ * detectedIsoFormat("GB2") // Error
  */
 export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
   if (isoMapping.get(iso) === undefined) {
@@ -319,6 +332,11 @@ export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
  * Convert an ISO2 or ISO3 country code to the other format.
  * @param iso The country code to convert.
  * @returns The converted country code or undefined if the conversion was not possible.
+ * @throws An error if the conversion was not possible.
+ * @example
+ * convertIso("GB") // "GBR"
+ * convertIso("GBR") // "GB"
+ * convertIso("GB2") // Error
  */
 export const convertIso = (iso: ISO2 | ISO3): ISO2 | ISO3 | undefined => {
   const format = detectedIsoFormat(iso);
