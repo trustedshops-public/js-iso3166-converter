@@ -33,7 +33,7 @@ jobs:
           path: junit.xml
       - codecov/upload
   release:
-    executor: node/default
+    executor: semantic-release/default
     steps:
       - checkout
       - attach_workspace:
