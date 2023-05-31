@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
-  semantic-release: trustedshops-public/semantic-release@4.1.0
+  semantic-release: trustedshops-public/semantic-release@5.0.0
   codecov: codecov/codecov@3.2.5
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
           path: junit.xml
       - codecov/upload
   release:
-    executor: node/default
+    executor: semantic-release/default
     steps:
       - checkout
       - attach_workspace:
