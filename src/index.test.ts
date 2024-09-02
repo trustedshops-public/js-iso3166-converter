@@ -2,6 +2,7 @@ import {
   convertIso2ToIso3,
   convertIso3ToIso2,
   detectedIsoFormat,
+  detectIsoFormat,
   convertIso,
 } from ".";
 
@@ -35,6 +36,9 @@ describe("detectedIsoFormat", () => {
   });
   it("should detect ISO3", () => {
     expect(detectedIsoFormat(ISO3_GERMANY)).toBe("ISO3");
+  });
+  it("should verify the alias detectIsoFormat exists", () => {
+    expect(detectIsoFormat).toBe(detectedIsoFormat);
   });
   it("should throw an error if the ISO code is invalid", () => {
     // @ts-ignore - we want to test invalid ISO codes

@@ -316,17 +316,19 @@ export const convertIso3ToIso2 = (iso3: ISO3): ISO2 => {
  * detectedIsoFormat("GB2") // Error
  */
 export const detectedIsoFormat = (iso: string): "ISO2" | "ISO3" => {
-  if (isoMapping.get(iso) === undefined) {
+  const capitalisedIso = iso.toUpperCase();
+  if (isoMapping.get(capitalisedIso) === undefined) {
     throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
   }
-  if (iso.length === 2) {
+  if (capitalisedIso.length === 2) {
     return "ISO2";
   }
-  if (iso.length === 3) {
+  if (capitalisedIso.length === 3) {
     return "ISO3";
   }
   throw new Error("ISO Code seems to be neither a valid ISO2 or ISO3 code");
 };
+export const detectIsoFormat = detectedIsoFormat
 
 /**
  * Convert an ISO2 or ISO3 country code to the other format.
